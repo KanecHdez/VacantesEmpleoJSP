@@ -19,7 +19,22 @@
         <servlet-name>BusquedaController</servlet-name>
         <servlet-class>net.itinajero.controller.BusquedaController</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>SolicitudController</servlet-name>
+        <servlet-class>net.itinajero.controller.SolicitudController</servlet-class>
+        <!-- https://docs.oracle.com/javaee/6/tutorial/doc/gmhal.html -->
+        <multipart-config>
+            <location>\tmp</location>
+            <!-- Tamanio maximo del archivo a subir-->
+            <max-file-size>3145728</max-file-size>
+            <max-request-size>418018841</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>EmailController</servlet-name>
+        <servlet-class>net.itinajero.controller.EmailController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VacanteController</servlet-name>
         <url-pattern>/vacante</url-pattern>
@@ -35,6 +50,14 @@
     <servlet-mapping>
         <servlet-name>BusquedaController</servlet-name>
         <url-pattern>/buscar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SolicitudController</servlet-name>
+        <url-pattern>/solicitud</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmailController</servlet-name>
+        <url-pattern>/email</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
